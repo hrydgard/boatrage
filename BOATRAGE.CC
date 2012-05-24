@@ -165,9 +165,6 @@ int init() {
  //load the palette
  //transparent text drawing
  text_mode(-1);
- //fill lookup-tables
- display.creatergbtable();
- display.createcolortable(return_added_color);
  //set 320x200
  display.set_graphics_mode(GFX_AUTODETECT_WINDOWED,8,320,200);
 
@@ -184,6 +181,9 @@ int init() {
  PALETTE tmppal;
  memcpy(tmppal, d(GAMEPAL), sizeof(PALETTE));
  display.setthestdpal(tmppal);
+ //fill lookup-tables
+ display.creatergbtable();
+ display.createcolortable(return_added_color);
 
  //load the mouse driver
  if ((i=install_mouse())==0) {

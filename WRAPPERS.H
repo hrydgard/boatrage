@@ -58,7 +58,7 @@ extern soundplayer Sound;
 class screenman {
  public:
   screenman() {buffer=0;}
-  ~screenman() {if (buffer) destroy_bitmap(buffer);}
+  ~screenman() {/*if (buffer) destroy_bitmap(buffer);*/}
   void fadeout(int speed=1);
   void fadein(int speed=1);
   void goblack() {set_palette(black_palette);}
