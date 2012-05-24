@@ -27,8 +27,8 @@ void tilemap::newmap(int w, int h) {
  height=h;
  closemap();
  _map=new int[width*height*2];
- name=   "Bana X\0        ";
- creator="Mr. X\0         ";
+ strcpy(name,   "Bana X\0        ");
+ strcpy(creator, "Mr. X\0         ");
  clear();
 }
 

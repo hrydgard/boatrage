@@ -1,7 +1,7 @@
 //WRAPPERS.H
 
 
-inline int rnd(int i) {return random()%i;}
+inline int rnd(int i) {return rand()%i;}
 inline void *d(int i) {return data[i].dat;}
 
 void draw_trans_sprite_center(BITMAP *bmp,BITMAP *pic,int x, int y);
@@ -73,7 +73,7 @@ class screenman {
    if (ret!=0) {
     xres=320; yres=200; coldepth=8;
     set_color_depth(8);
-    set_gfx_mode(GFX_VGA,xres,yres,0,0);
+    set_gfx_mode(GFX_AUTODETECT_WINDOWED,xres,yres,0,0);
     set_palette(desktop_palette);
     i=0;
    }
@@ -84,14 +84,14 @@ class screenman {
    set_palette(stdpal);
   }
   void setthestdpal(PALETTE &pal) {
-   stdpal=pal;
+   memcpy(stdpal, pal, sizeof(PALETTE));
   }
   void setpal(PALETTE pal) {set_palette(pal);}
   void creatergbtable() {
    create_rgb_table(&rgb_table,stdpal,NULL);
    rgb_map=&rgb_table;
   }
-  void createcolortable(void (*blend)(PALETTE pal,int x, int y, RGB *rgb)) {
+  void createcolortable(void (*blend)(const PALETTE pal,int x, int y, RGB *rgb)) {
    create_color_table(&color_table,stdpal,blend,NULL);
    color_map=&color_table;
   }

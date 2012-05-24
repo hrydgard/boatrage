@@ -11,7 +11,8 @@
 
 #include "boatrage.h" //Some global stuff + allegro.h
 
-#include "iostream.h" //you should know what this is
+#include <iostream> //you should know what this is
+
 #include "wrappers.h" //the classes display, Sound, and Music.
 #include "sprite.h"   //the Sprite class
 #include "player.h"   //the Player class, which keeps track of if you won and stuff like that
@@ -110,7 +111,7 @@ coolmenuitem m_resolution[]={
 
 //NOTE: If you use an earlier version of allegro, you'll need to replace this
 //function with the commented out one which comes after this one.l
-void return_added_color(PALETTE pal, int x, int y, RGB *rgb) {
+void return_added_color(const PALETTE pal, int x, int y, RGB *rgb) {
  int r,g,b;
  //add the colors together
  r=pal[x].r+pal[y].r;
@@ -143,11 +144,11 @@ RGB return_added_color(PALETTE pal, int x, int y) {
 }
 */
 
+using std::cout;
+using std::endl;
 
 int init() {
  int i;
- //clear the text screen
- clrscr();
 
  //tell the user which game he/she is starting :-)
  cout << S_STARTING1 << endl;
@@ -164,7 +165,6 @@ int init() {
  if ((i=install_mouse())==0) {
   cout << S_ERRMOUSE << endl;
   nomouse=1;
-  getch();
  } else {
   cout << i << S_OKMOUSE << endl;
  }
@@ -172,7 +172,6 @@ int init() {
  if (install_sound(DIGI_AUTODETECT,MIDI_AUTODETECT,NULL)!=0) {
   cout << S_ERRSND << endl;
   nosound=1;
-  getch();
  } else {
   cout << S_OKSND << endl;
  }
@@ -210,7 +209,7 @@ int init() {
  SCR_W=320; SCR_H=200;
  //load the palette
  PALETTE tmppal;
- tmppal=*((PALETTE *)d(GAMEPAL));
+ memcpy(tmppal, d(GAMEPAL), sizeof(PALETTE));
  display.setthestdpal(tmppal);
  //transparent text drawing
  text_mode(-1);
@@ -222,7 +221,7 @@ int init() {
  //fade out the text screen (if possible)
  display.fadeout(1);
  //set 320x200
- display.set_graphics_mode(GFX_VGA,8,320,200);
+ display.set_graphics_mode(GFX_AUTODETECT_WINDOWED,8,320,200);
  //set map to be a new tilemap instance
  map=new tilemap();
  //show the resolution menu
@@ -233,7 +232,7 @@ int init() {
   case 0:
    goto initproceed; //Yuck! A goto! :-(
   case 1:
-   sw=320; sh=240; mode=GFX_MODEX; break;
+   sw=320; sh=240; break;
   case 2:
    sw=320; sh=240; break;
   case 3:
@@ -287,7 +286,9 @@ initproceed:
  return 1;
 }
 
-int main() {
+#undef main
+
+int main(int argc, const char *argv[]) {
  set_volume(255,225);
  //try to init; if it didn't succed, bail out.
  if (!init()) return -1;
@@ -300,9 +301,10 @@ int main() {
  //...fade in...
  display.fadein(3);
  //...wait...
- delay(1500);
+ // Sleep(1500); //delay(1500);
  //...and fade out!
  display.fadeout(3);
  //Now show the main menu!
  mainmenu();
+ return 0;
 }

@@ -12,8 +12,8 @@
 
 boatcoord bc[2];
 
-char strwidth[4]="32";
-char strheight[4]="32";
+const char *strwidth="32";
+const char *strheight="32";
 char strlaps[3]="5";
 char strsong[3]="1";
 char strname[16]="X";
@@ -52,8 +52,8 @@ DIALOG newlevel[] ={
 {d_text_proc , 50, 80, 0,  0,  255,   0,     0,     0,       0,   0, S_HOWBIGLEVEL},
 {d_text_proc , 70, 90, 0,  0,  255,   0,     0,     0,       0,   0, S_WIDTH},
 {d_text_proc , 70, 110,0,  0,  255,   0,     0,     0,       0,   0, S_HEIGHT},
-{d_edit_proc , 150,90, 32, 10, 255,   0,     0,     0,       sizeof(strwidth)-1,   0,  strwidth},
-{d_edit_proc , 150,110,32, 10, 255,   0,     0,     0,       sizeof(strheight)-1,  0,  strheight},
+{d_edit_proc , 150,90, 32, 10, 255,   0,     0,     0,       sizeof(strwidth)-1,   0,  (void*)strwidth},
+{d_edit_proc , 150,110,32, 10, 255,   0,     0,     0,       sizeof(strheight)-1,  0,  (void*)strheight},
 {d_button_proc,255,90, 60, 12, 255,   0, KEY_ENTER, D_EXIT,  0,   0, S_OK},
 {NULL,0,0,0,0,0,0,0,0,0,0,NULL,NULL,NULL}
 };

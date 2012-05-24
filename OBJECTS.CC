@@ -44,7 +44,7 @@ void boat::move() {
  #define ri(i) ((i&0xffff))  //plocka "decimalerna"
 
  if (countdown>0) return;
- static lastx,lasty;
+ static int lastx,lasty;
  lastx=x;
  lasty=y;
  x+=dx;

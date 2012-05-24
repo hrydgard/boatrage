@@ -3,3 +3,7 @@ Release
 *.user
 engsrc
 *.opensdf
+grabber.exe
+grabber.txt
+*.suo
+*.log

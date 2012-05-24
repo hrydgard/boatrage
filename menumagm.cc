@@ -1,4 +1,6 @@
 //Menu Management
+#include <cstdio>
+
 #include "boatrage.h"
 #include "wrappers.h"
 #include "menu.h"
@@ -67,25 +69,22 @@ int wannaquitthis=0; //vill spelaren g† tillbaka?
 int inseason=0;   //„r 1 om man spelar en s„song
 
 //h†lla hastigheten p† spelet
-void speeder(...) {
+void speeder() {
  target_cycle++;
 }
-END_OF_FUNCTION(speeder); //beh”vs vid funktioner som k”rs av timern
 
 //r„kna frames per second
-void countfps(...) {
+void countfps() {
  fps=fpsc;
  fpsc=0;
  fpsx=fpsxc;
  fpsxc=0;
 }
-END_OF_FUNCTION(countfps); //beh”vs vid funktioner som k”rs av timern
 
 //r„kna ned
-void thecountdown(...) {
+void thecountdown() {
  countdown--;
 }
-END_OF_FUNCTION(thecountdown); //beh”vs vid funktioner som k”rs av timern
 
 //K™R ETT RACE!!!!!!!!!!!!
 void race(player &p1, player &p2, char *level) {
@@ -461,7 +460,7 @@ void mainmenu() {
 }
 
 //let the user select a level
-int selectlevel(int std=1,int still=0) {
+int selectlevel(int std, int still) {
  int l=std,
      changed=1,
      tmp,
