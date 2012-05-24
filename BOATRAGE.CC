@@ -25,9 +25,9 @@
 #include "menumagm.h"
 
 //We only need 8-bit color
-BEGIN_COLOR_DEPTH_LIST
- COLOR_DEPTH_8
-END_COLOR_DEPTH_LIST
+//BEGIN_COLOR_DEPTH_LIST
+// COLOR_DEPTH_8
+//END_COLOR_DEPTH_LIST
 
 //This is the big fat datafile
 DATAFILE *data;
@@ -161,6 +161,30 @@ int init() {
  } else {
   cout << S_OKALLEG << endl;
  }
+
+ //load the palette
+ //transparent text drawing
+ text_mode(-1);
+ //fill lookup-tables
+ display.creatergbtable();
+ display.createcolortable(return_added_color);
+ //set 320x200
+ display.set_graphics_mode(GFX_AUTODETECT_WINDOWED,8,320,200);
+
+ //tell the user that we're loading the datafile
+ cout << S_LOADING << " boatrage.dat" << endl;
+
+ //and load it!
+ data=load_datafile("boatrage.dat");
+ if (data==NULL) {
+   cout << S_ERRLOADING1 << "boatrage.dat" << S_ERRLOADING2 << endl;
+   return 0;
+ }
+
+ PALETTE tmppal;
+ memcpy(tmppal, d(GAMEPAL), sizeof(PALETTE));
+ display.setthestdpal(tmppal);
+
  //load the mouse driver
  if ((i=install_mouse())==0) {
   cout << S_ERRMOUSE << endl;
@@ -190,15 +214,6 @@ int init() {
   cout << S_OKTIMER << endl;
  }
 
- //tell the user that we're loading the datafile
- cout << S_LOADING << " boatrage.dat" << endl;
-
- //and load it!
- data=load_datafile("boatrage.dat");
- if (data==NULL) {
-  cout << S_ERRLOADING1 << "boatrage.dat" << S_ERRLOADING2 << endl;
-  return 0;
- }
 
  //tell the user that we're loading graphics (though we're actually just setting
  //up variables and filling look-up tables)
@@ -207,27 +222,12 @@ int init() {
  //set default values
  SCR_X=0; SCR_Y=0;
  SCR_W=320; SCR_H=200;
- //load the palette
- PALETTE tmppal;
- memcpy(tmppal, d(GAMEPAL), sizeof(PALETTE));
- display.setthestdpal(tmppal);
- //transparent text drawing
- text_mode(-1);
- //fill lookup-tables
- display.creatergbtable();
- display.createcolortable(return_added_color);
- //tell the user that we're trying to switch graphics mode
- cout << S_GFXSWITCH << 8 << S_GFXBIT << 320 << "x" << 200 << " " << "VGA" << S_GFXMODE << endl;
- //fade out the text screen (if possible)
- display.fadeout(1);
- //set 320x200
- display.set_graphics_mode(GFX_AUTODETECT_WINDOWED,8,320,200);
  //set map to be a new tilemap instance
  map=new tilemap();
  //show the resolution menu
  int a=coolmenu(NULL,m_resolution,7,2);
 
- int sw,sh,mode=GFX_AUTODETECT;
+ int sw,sh,mode=GFX_AUTODETECT_WINDOWED;
  switch (a) {
   case 0:
    goto initproceed; //Yuck! A goto! :-(
