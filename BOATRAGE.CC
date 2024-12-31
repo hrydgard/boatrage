@@ -1,7 +1,7 @@
 /****************************************************************************
 *BoatRage!          file: BOATRAGE.CC                                       *
 *****************************************************************************
-*Emailware by Zenon (Henrik Rydg†rd)                                        *
+*Emailware by Zenon (Henrik RydgÃ¥rd)                                        *
 *This code and this program may be distributed for free, but please email me*
 *first.                                                                     *
 *henrik_83_@hotmail.com (don't forget any of the underscores...).           *
@@ -51,7 +51,7 @@ boattype boattypes[]={
  {"Shanghai","Badkaret",   BOAT2, 2<<12, 2<<16, ftofix(1.05),ftofix(1.0)}
 };
 
-//Ž™†„”=ÅÄÖåäö
+//Ã…Ã„Ã–Ã¥Ã¤Ã¶=â”¼â”€ÃÃ•ÃµÃ·
 
 //I intended to have pictures of the different stuff, but I didn't get around
 //to draw them. But if I do, I'll remove these constants so that code using

@@ -34,25 +34,25 @@ Questions? Just mail me! But no spam please!
 ***************
 SVENSKA/SWEDISH
 ***************
-Hallå!
-Här är källkoden till BoatRage. Den är ganska rörig och ostrukturerad, men jag hoppas du får ut nåt av den. 
+HallÃ¥!
+HÃ¤r Ã¤r kÃ¤llkoden till BoatRage. Den Ã¤r ganska rÃ¶rig och ostrukturerad, men jag hoppas du fÃ¥r ut nÃ¥t av den. 
 
-OBS: om du använder kod från boatrage i dina spel, MÅSTE du skriva i din readme-fil eller nånstans i spelet att du använt min kod och skriv även min e-mailadress och adressen till min boatrage-sida ( http://come.to/boatrage/ ).
+OBS: om du anvÃ¤nder kod frÃ¥n boatrage i dina spel, MÃ…STE du skriva i din readme-fil eller nÃ¥nstans i spelet att du anvÃ¤nt min kod och skriv Ã¤ven min e-mailadress och adressen till min boatrage-sida ( http://come.to/boatrage/ ).
 
-Filnamnen säger ungefär vad som finns i filerna (t ex sprite.cc), men i menumagm.cc finns det både menyer (som namnet anger) och själva Race-koden (void race()).
-Display som finns lite överallt är en klass jag har gjort för att ta hand om skärmen. Den innehåller en typomvandlingskonstruktör (vilket ord!) så att man kan använda den istället för BITMAPs, t ex clear(display); . Koden till den finns i wrappers.cc och wrappers.h.
+Filnamnen sÃ¤ger ungefÃ¤r vad som finns i filerna (t ex sprite.cc), men i menumagm.cc finns det bÃ¥de menyer (som namnet anger) och sjÃ¤lva Race-koden (void race()).
+Display som finns lite Ã¶verallt Ã¤r en klass jag har gjort fÃ¶r att ta hand om skÃ¤rmen. Den innehÃ¥ller en typomvandlingskonstruktÃ¶r (vilket ord!) sÃ¥ att man kan anvÃ¤nda den istÃ¤llet fÃ¶r BITMAPs, t ex clear(display); . Koden till den finns i wrappers.cc och wrappers.h.
 
-För att enklast kolla på källkoden, så: ta en dosprompt och gå till mappen med källkoden och skriv rhide (om du har Rhide, alltså).
+FÃ¶r att enklast kolla pÃ¥ kÃ¤llkoden, sÃ¥: ta en dosprompt och gÃ¥ till mappen med kÃ¤llkoden och skriv rhide (om du har Rhide, alltsÃ¥).
 
-För att spelet ska kunna köras när du kompilerat det behöver du spelets datafil också och gärna lite banor. Ladda helt enkelt hem spelet från min site: http://come.to/boatrage/ och packa upp i samma mapp.
+FÃ¶r att spelet ska kunna kÃ¶ras nÃ¤r du kompilerat det behÃ¶ver du spelets datafil ocksÃ¥ och gÃ¤rna lite banor. Ladda helt enkelt hem spelet frÃ¥n min site: http://come.to/boatrage/ och packa upp i samma mapp.
 
-För att koden ska kompilera krävs:
-* DJGPP 2.0 (eller högre) (www.delorie.com)
-* Allegro 3.11 (det kan gå med 3.1 och kanske t om med 3.0, men jag har inte testat, ladda hem senaste från http://www.talula.demon.co.uk/allegro/)
+FÃ¶r att koden ska kompilera krÃ¤vs:
+* DJGPP 2.0 (eller hÃ¶gre) (www.delorie.com)
+* Allegro 3.11 (det kan gÃ¥ med 3.1 och kanske t om med 3.0, men jag har inte testat, ladda hem senaste frÃ¥n http://www.talula.demon.co.uk/allegro/)
 
-DJGPP är en suverän gnu-ware (gratis) C/C++-kompilator.
-Allegro är ett gäng grafik- och ljudfunktioner till DJGPP. Finns också till Visual C++.
+DJGPP Ã¤r en suverÃ¤n gnu-ware (gratis) C/C++-kompilator.
+Allegro Ã¤r ett gÃ¤ng grafik- och ljudfunktioner till DJGPP. Finns ocksÃ¥ till Visual C++.
 
-Har ni frågor så maila mig!
+Har ni frÃ¥gor sÃ¥ maila mig!
 
 //Henrik (henrik_83_@hotmail.com)

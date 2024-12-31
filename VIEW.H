@@ -1,6 +1,6 @@
 //VIEW.H
 
-//en kamera som kan fîlja efter t ex en bÜt
+//en kamera som kan f√∂lja efter t ex en b√•t
 class view {
  public:
   view(BITMAP *canv) {bmp=canv;}

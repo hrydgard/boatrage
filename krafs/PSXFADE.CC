@@ -1,6 +1,6 @@
 
 //PSXFADE.CC
-//Public Domain (Freeware) av Henrik Rydgård
+//Public Domain (Freeware) av Henrik RydgÃ¥rd
 #include <allegro.h>
 #include "psxfade.h"
 

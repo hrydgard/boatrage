@@ -78,7 +78,7 @@ class light : public sprite {
  protected:
   int color;
   int ltype;
-  int p1,p2; //olika extraegenskaper f”r ljusk„llor som
+  int p1,p2; //olika extraegenskaper fÃ¶r ljuskÃ¤llor som
              //roterande fyrar och annat
 };
 

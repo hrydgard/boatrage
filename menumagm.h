@@ -14,17 +14,17 @@ void letplayerupgrade(player &p);
 void afterrace(player &p1, player &p2,int moneyamount);
 void race(player &p1,player &p2);
 
-//hÜlla hastigheten pÜ spelet
+//h√•lla hastigheten p√• spelet
 void speeder();
-//END_OF_FUNCTION(speeder); //behîvs vid funktioner som kîrs av timern
+//END_OF_FUNCTION(speeder); //beh√∂vs vid funktioner som k√∂rs av timern
 
-//rÑkna frames per second
+//r√§kna frames per second
 void countfps();
-//END_OF_FUNCTION(countfps); //behîvs vid funktioner som kîrs av timern
+//END_OF_FUNCTION(countfps); //beh√∂vs vid funktioner som k√∂rs av timern
 
-//rÑkna ned
+//r√§kna ned
 void thecountdown();
-//END_OF_FUNCTION(thecountdown); //behîvs vid funktioner som kîrs av timern
+//END_OF_FUNCTION(thecountdown); //beh√∂vs vid funktioner som k√∂rs av timern
 
 extern volatile int fps,fpsc,fpsx,fpsxc;
 

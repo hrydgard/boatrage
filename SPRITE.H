@@ -2,20 +2,20 @@
 //********
 
 //olika sprite-typer
-#define SP_BOAT   0 //b냪
+#define SP_BOAT   0 //b책t
 #define SP_LIGHT  1 //ljuseffekt
-#define SP_BULLET 2 //skott (anv꼗ds inte)
+#define SP_BULLET 2 //skott (anv채nds inte)
 #define SP_EDIT   3 //muspekare i editorn
-#define SP_BONUS  4 //anv꼗ds inte
-#define SP_OTHER  5 //samma h꼛
+#define SP_BONUS  4 //anv채nds inte
+#define SP_OTHER  5 //samma h채r
 
-//anv꼗ds n꼛 man laddar banor
+//anv채nds n채r man laddar banor
 struct boatcoord {
  fixed x,y;
  fixed a;
 };
 
-//en sprite (en basklass som boat, light m m 꼛ver fr냣)
+//en sprite (en basklass som boat, light m m 채rver fr책n)
 class sprite {
  public:
   sprite(fixed newx, fixed newy);

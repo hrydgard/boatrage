@@ -1,13 +1,13 @@
 //TILEMAP.H
 
-//dessa konstanter Ñr fîr tiletype.action.
+//dessa konstanter √§r f√∂r tiletype.action.
 #define A_NONE    0 //tomt
 #define A_BLOCK   1 //blockera (standard)
-#define A_EDGE    2 //kanter & palmer & sÜnt
+#define A_EDGE    2 //kanter & palmer & s√•nt
 #define A_CP1     3 //checkpoints
 #define A_CP2     4
 #define A_CP3     5
-#define A_GOAL    6 //mÜl
+#define A_GOAL    6 //m√•l
 #define A_SPLEFT  7 //speed ups
 #define A_SPUP    8
 #define A_SPRIGHT 9

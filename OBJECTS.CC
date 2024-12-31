@@ -39,8 +39,8 @@ void boat::setcoords(boatcoord &bc) {
 }
 
 void boat::move() {
- #define ir(i) (i&0xffff0000) //avrunda ner till n„rmaste heltal
- #define iru(i) (((i>>16)+1)<<16) //avrunda upp till n„rmaste heltal
+ #define ir(i) (i&0xffff0000) //avrunda ner till nÃ¤rmaste heltal
+ #define iru(i) (((i>>16)+1)<<16) //avrunda upp till nÃ¤rmaste heltal
  #define ri(i) ((i&0xffff))  //plocka "decimalerna"
 
  if (countdown>0) return;
@@ -57,13 +57,13 @@ void boat::move() {
  dy=fdiv(dy,skid);
 
  int thistile,act;
- //om den „r utanf”r kartan s„tt tillbaks den
+ //om den Ã¤r utanfÃ¶r kartan sÃ¤tt tillbaks den
  if (x<0) {x=0; dx=(int)(dx*-0.5);}
  if (y<0) {y=0; dy=(int)(dy*-0.5);}
  if (x>map->getfixwidth()-1) {x=map->getfixwidth()-1; dx=(int)(dx*-0.5);}
  if (y>map->getfixheight()-1) {y=map->getfixheight()-1; dy=(int)(dy*-0.5);}
 
- //kolla om den har k”rt upp p† land eller n†t s†nt
+ //kolla om den har kÃ¶rt upp pÃ¥ land eller nÃ¥t sÃ¥nt
  thistile=map->get(x>>16,y>>16,0);
  act=tiletypes[thistile].action;
  switch (act) {
@@ -186,7 +186,7 @@ void editcursor::draw(BITMAP *bmp,fixed sx,fixed sy) {
  ny=(y-sy)>>12;
  draw_trans_rle_sprite_center(bmp,pic,nx,ny);
 }
-/* // JAG HAR SLŽNGT VAPENFUNKTIONERNA. DE PASSADE INTE IN I SPELBALANSEN...
+/* // JAG HAR SLÃ„NGT VAPENFUNKTIONERNA. DE PASSADE INTE IN I SPELBALANSEN...
 bullet::bullet(boat *en,fixed nx, fixed ny, fixed ndx, fixed ndy,
                fixed nangle, int ntype) : sprite(nx,ny) {
  type=SP_BULLET;

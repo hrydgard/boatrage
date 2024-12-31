@@ -2,7 +2,7 @@
 #include "boatrage.h"
 #include "sprite.h"
 
-sprite *sprite::pfirst=NULL; //pekare till den f”rsta spriten
+sprite *sprite::pfirst=NULL; //pekare till den fÃ¶rsta spriten
 int sprite::spritecount=0;
 //skapa sprite
 
@@ -26,7 +26,7 @@ sprite::sprite(fixed newx, fixed newy) {
  }
 }
 
-//d”da sprite
+//dÃ¶da sprite
 sprite::~sprite() {
  spritecount--;
  if (tobedeleted) return;
@@ -84,14 +84,14 @@ int sprite::collided(sprite *sp) {
 }
 
 void sprite::killall() {
- //s† l„nge n†gon finns kvar...
+ //sÃ¥ lÃ¤nge nÃ¥gon finns kvar...
  while (pfirst>NULL) {
   //ta bort den
   delete pfirst;
  }
 }
 
-//jag har problem med dessa: anv„nder dom inte
+//jag har problem med dessa: anvÃ¤nder dom inte
 /*void sprite::sendtoback() {
  if (pfirst==this) return;
  sprite *sp;

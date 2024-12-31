@@ -158,7 +158,7 @@ void tilemap::drawminimap(BITMAP *bmp) {
  for (y=0; y<height; y++) {
   for (x=0; x<width; x++) {
    tmp=get(x,y,0);
-   if (tmp<0 || tmp>255) tmp=0; //fîr att vara sÑker
+   if (tmp<0 || tmp>255) tmp=0; //f√∂r att vara s√§ker
    putpixel(bmp,x,y,tiletypes[tmp].color);
   }
  }
@@ -196,7 +196,7 @@ void tilemap::fixedges() {
 
    THIS=get(x,y,0);
    if (THIS>1) continue;
-   //Rakt upp/ner/vÑnster/hîger
+   //Rakt upp/ner/v√§nster/h√∂ger
    if (L && !U && !R && !D)
     set(x,y,1,L+1);
    if (!L && U && !R && !D)
@@ -205,7 +205,7 @@ void tilemap::fixedges() {
     set(x,y,1,R+3);
    if (!L && !U && !R && D)
     set(x,y,1,D+4);
-   //TvÜriktnings
+   //Tv√•riktnings
    if (L && U && !R && !D)
     set(x,y,1,L+9);
    if (!L && U && R && !D)
@@ -232,7 +232,7 @@ void tilemap::fixedges() {
    if (L && U && R && D)
     set(x,y,1,L+19);
 
-    //hîrn
+    //h√∂rn
    if (UL && !UR && !DR && !DL && !L && !U && !R && !D)
     set(x,y,1,UL+5);
    if (!UL && UR && !DR && !DL && !L && !U && !R && !D)
