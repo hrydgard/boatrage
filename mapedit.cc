@@ -9,6 +9,7 @@
 #include "view.h"
 #include "menu.h"
 #include "mapedit.h"
+#include <cstdio>
 
 boatcoord bc[2];
 
@@ -81,8 +82,10 @@ void showprops() {
  strcpy(strcreator,map->creator);
  laps=map->getlaps();
  song=map->getsong()+1;
- itoa(laps,(char *)levelprops[8].dp,10);
- itoa(song,(char *)levelprops[9].dp,10);
+ //itoa(laps,(char *)levelprops[8].dp,10);
+ //itoa(song,(char *)levelprops[9].dp,10);
+ sprintf((char *)levelprops[8].dp,"%d",laps);
+ sprintf((char *)levelprops[9].dp,"%d",song);
  do {
   do_dialog(levelprops,-1);
   laps=atoi((char *)levelprops[8].dp);
