@@ -49,12 +49,12 @@ void boat::move() {
  lasty=y;
  x+=dx;
  y+=dy;
- int sampspeed=int(1000+20000.0*fixtof(fsqrt(fmul(dx,dx)+fmul(dy,dy))));
+ int sampspeed=int(1000+20000.0*fixtof(fixsqrt(fixmul(dx,dx)+fixmul(dy,dy))));
  if (sampspeed>10000) sampspeed=10000;
  Sound.adjust(engine,170,128,sampspeed,1);
 
- dx=fdiv(dx,skid);
- dy=fdiv(dy,skid);
+ dx=fixdiv(dx,skid);
+ dy=fixdiv(dy,skid);
 
  int thistile,act;
  //om den är utanför kartan sätt tillbaks den
@@ -120,8 +120,8 @@ void boat::move() {
  int accing=0;
  controller->check();
  if (controller->keyup()) {
-  dx+=fmul(fsin(angle)>>4,acc);
-  dy-=fmul(fcos(angle)>>4,acc);
+  dx+=fixmul(fixsin(angle)>>4,acc);
+  dy-=fixmul(fixcos(angle)>>4,acc);
   accing=1;
  }
  if (controller->keyleft()) {
@@ -139,14 +139,14 @@ void boat::draw(BITMAP *bmp,fixed sx,fixed sy) {
  rotate_sprite(bmp,pic,nx-(pic->w>>1),ny-(pic->w>>1),angle);
  fixed a,dist,tmpx,tmpy;
  int tmpspeed;
- tmpspeed=fixtoi(fsqrt(fmul(dx,dx)+fmul(dy,dy))*70);
+ tmpspeed=fixtoi(fixsqrt(fixmul(dx,dx)+fixmul(dy,dy))*70);
  if (tmpspeed<0) tmpspeed=-tmpspeed;
  tmpspeed++;
  for (i=0; i<20; i++) {
   a=itofix(fixtoi(angle)+rnd(20)-10+128);
   dist=rnd(tmpspeed)+7;
-  tmpx=fixtoi(fsin(a)*dist);
-  tmpy=fixtoi(-fcos(a)*dist);
+  tmpx=fixtoi(fixsin(a)*dist);
+  tmpy=fixtoi(-fixcos(a)*dist);
   putpixel(bmp,nx+tmpx,ny+tmpy,makecol(0,rnd(128),rnd(255)));
  }
 }
@@ -247,10 +247,10 @@ void light::draw(BITMAP *bmp,fixed sx, fixed sy) {
    break;
   case LIGHT_LTHOUSE:
    drawing_mode(DRAW_MODE_TRANS,NULL,0,0);
-   triangle(bmp,nx,ny,nx+fixtoi(fsin(itofix(p1-12))*30),
-                      ny-fixtoi(fcos(itofix(p1-12))*30),
-                      nx+fixtoi(fsin(itofix(p1+12))*30),
-                      ny-fixtoi(fcos(itofix(p1+12))*30),(color+1)*16+8);
+   triangle(bmp,nx,ny,nx+fixtoi(fixsin(itofix(p1-12))*30),
+                      ny-fixtoi(fixcos(itofix(p1-12))*30),
+                      nx+fixtoi(fixsin(itofix(p1+12))*30),
+                      ny-fixtoi(fixcos(itofix(p1+12))*30),(color+1)*16+8);
    drawing_mode(DRAW_MODE_SOLID,NULL,0,0);
    break;
  }

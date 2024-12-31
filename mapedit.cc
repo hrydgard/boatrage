@@ -317,7 +317,7 @@ void editmap() {
    tmpx=(bc[i].x-mapview->getsx())>>12;
    tmpy=(bc[i].y-mapview->getsy())>>12;
    textprintf(viewbitmap,nfont,tmpx-4,tmpy-4,GREEN,"%i",i+1);
-   line(viewbitmap,tmpx,tmpy,tmpx+(fsin(bc[i].a)>>12),tmpy-(fcos(bc[i].a)>>12),makecol(255,128,0));
+   line(viewbitmap,tmpx,tmpy,tmpx+(fixsin(bc[i].a)>>12),tmpy-(fixcos(bc[i].a)>>12),makecol(255,128,0));
   }
   if (key[KEY_F1]) {
    y=4;

@@ -76,7 +76,7 @@ void sprite::moveall() {
 //kolla om den har krockat
 int sprite::collided(sprite *sp) {
  fixed dist;
- dist=fsqrt(fmul(sp->x-x,sp->x-x)+fmul(sp->y-y,sp->y-y));
+ dist=fixsqrt(fixmul(sp->x-x,sp->x-x)+fixmul(sp->y-y,sp->y-y));
  if (dist<(sp->size+size)<<12)
   {return 1;}
  else

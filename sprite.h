@@ -32,7 +32,7 @@ class sprite {
   static sprite *findat(fixed x, fixed y, int type);
   int collided(sprite *sp);
   int hit(fixed _x,fixed _y) {
-   if (fsqrt(fmul(x-_x,x-_x)+fmul(y-_y,y-_y)) < itofix(1))
+   if (fixsqrt(fixmul(x-_x,x-_x)+fixmul(y-_y,y-_y)) < itofix(1))
     return 1;
    else
     return 0;
