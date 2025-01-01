@@ -479,8 +479,6 @@ int selectlevel(int std, int still) {
   clear(display);
   draw_rle_sprite(display,(RLE_SPRITE *)d(CLOUDS),SCR_X,SCR_Y);
   if (changed) {
-   Sound.play((SAMPLE *)d(SND_CHOOSE));
-   changed=0;
    sprintf(file,"l%i.boa",l);
    if (exists(file)) {
     map->closemap();
@@ -514,10 +512,17 @@ int selectlevel(int std, int still) {
   vsync();
   blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
   if (first) {first=0; display.fadein(3);}
+
+  if (changed && (key[KEY_DOWN] || key[KEY_UP]))
+   continue;
+  else
+   changed=0;
+
   if (still==0) {
    if (key[KEY_DOWN])   {clear_keybuf();l++;changed=1;}
    if (key[KEY_UP] && l>1) {clear_keybuf();l--;changed=1;}
   }
+  if (changed) Sound.play((SAMPLE *)d(SND_CHOOSE));
   if (key[KEY_ENTER]) {
    Sound.play((SAMPLE *)d(SND_SELECT));
    clear_keybuf();
