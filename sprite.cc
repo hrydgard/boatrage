@@ -85,7 +85,7 @@ int sprite::collided(sprite *sp) {
 
 void sprite::killall() {
  //så länge någon finns kvar...
- while (pfirst>NULL) {
+ while (pfirst != NULL) {
   //ta bort den
   delete pfirst;
  }
