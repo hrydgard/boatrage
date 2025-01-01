@@ -192,7 +192,8 @@ void race(player &p1, player &p2, char *level) {
   if (synch) vsync();
 
   //We're finished! Send to the screen!
-  display.flip();
+  //display.flip();
+  blit(display, screen, 0, 0, 0,0, SCREEN_W, SCREEN_W);
 
   //Let the game progress
   while (target_cycle>actual_cycle) {
@@ -269,7 +270,8 @@ void credits() {
   textprintf(display,rf,x+40,y+=14,-1,S_AUTHOR);
   textprintf(display,rf,x+40,y+=14,-1,S_COAUTHOR);
   vsync();
-  blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+  //blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+  display.flip();
  } while (!key[KEY_ESC]);
  display.fadeout(4);
 }
@@ -512,7 +514,8 @@ int selectlevel(int std, int still) {
   rect(display,SCR_X+10,SCR_Y+60,SCR_X+btmp2->w+1+10,SCR_Y+btmp2->h+1+60,makecol(0,0,0));
   blit(btmp2,display,0,0,SCR_X+11,SCR_Y+61,btmp2->w,btmp2->h);
   vsync();
-  blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+  //blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+  display.flip();
   if (first) {first=0; display.fadein(3);}
   if (still==0) {
    if (key[KEY_DOWN])   {clear_keybuf();l++;changed=1;}
@@ -563,7 +566,8 @@ void showlevelinfo(char *file) {
   rect(display,SCR_X+10,SCR_Y+60,SCR_X+btmp2->w+1+10,SCR_Y+btmp2->h+1+60,makecol(0,0,0));
   blit(btmp2,display,0,0,SCR_X+11,SCR_Y+61,btmp2->w,btmp2->h);
   vsync();
-  blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+  //blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+  display.flip();
   if (first) {first=0; display.fadein(3);}
   if (key[KEY_ENTER]) {
    Sound.play((SAMPLE *)d(SND_SELECT));
