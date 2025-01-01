@@ -77,8 +77,8 @@ void view::follow(sprite *sp) {
 void view::followboat(boat *b) {
 // fixed cx,cy;//,cx2,cy2;
  fixed destx,desty;
- destx=b->getX();//+b->dx*16;//fsin(b->angle)*2;
- desty=b->getY();//+b->dy*16;//fcos(b->angle)*2;
+ destx=b->getX();//+b->dx*16;//fixsin(b->angle)*2;
+ desty=b->getY();//+b->dy*16;//fixcos(b->angle)*2;
  //sx+=(bmp->w<<11);
  //sy+=(bmp->h<<11);
  //sx-=(sx-destx)/8;

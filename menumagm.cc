@@ -63,17 +63,17 @@ volatile int fps,fpsc,fpsx,fpsxc;
 volatile int target_cycle=0;
 int actual_cycle=0;
 
-int position=0; //placering n„sta b†t kommer p†
-int quitseason=0; //vill spelaren avsluta s„songen?
-int wannaquitthis=0; //vill spelaren g† tillbaka?
-int inseason=0;   //„r 1 om man spelar en s„song
+int position=0; //placering nÃ¤sta bÃ¥t kommer pÃ¥
+int quitseason=0; //vill spelaren avsluta sÃ¤songen?
+int wannaquitthis=0; //vill spelaren gÃ¥ tillbaka?
+int inseason=0;   //Ã¤r 1 om man spelar en sÃ¤song
 
-//h†lla hastigheten p† spelet
+//hÃ¥lla hastigheten pÃ¥ spelet
 void speeder() {
  target_cycle++;
 }
 
-//r„kna frames per second
+//rÃ¤kna frames per second
 void countfps() {
  fps=fpsc;
  fpsc=0;
@@ -81,12 +81,12 @@ void countfps() {
  fpsxc=0;
 }
 
-//r„kna ned
+//rÃ¤kna ned
 void thecountdown() {
  countdown--;
 }
 
-//K™R ETT RACE!!!!!!!!!!!!
+//KÃ–R ETT RACE!!!!!!!!!!!!
 void race(player &p1, player &p2, char *level) {
  int paused=0;
  int q=0; //quit?
@@ -490,7 +490,7 @@ int selectlevel(int std, int still) {
     for (y=0; y<map->getheight(); y++) {
      for (x=0; x<map->getwidth(); x++) {
       tmp=map->get(x,y,0);
-      if (tmp<0 || tmp>255) tmp=0; //f”r att vara s„ker
+      if (tmp<0 || tmp>255) tmp=0; //fÃ¶r att vara sÃ¤ker
       putpixel(btmp1,x,y,tiletypes[tmp].color);
      }
     }

@@ -1,5 +1,5 @@
 //PSXFADE.H
-//Public Domain (Freeware) av Henrik Rydg�rd
+//Public Domain (Freeware) av Henrik RydgÃrd
 
 class screenman {
  public:

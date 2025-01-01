@@ -9,6 +9,7 @@
 #include "view.h"
 #include "menu.h"
 #include "mapedit.h"
+#include <cstdio>
 
 boatcoord bc[2];
 
@@ -81,8 +82,10 @@ void showprops() {
  strcpy(strcreator,map->creator);
  laps=map->getlaps();
  song=map->getsong()+1;
- itoa(laps,(char *)levelprops[8].dp,10);
- itoa(song,(char *)levelprops[9].dp,10);
+ //itoa(laps,(char *)levelprops[8].dp,10);
+ //itoa(song,(char *)levelprops[9].dp,10);
+ sprintf((char *)levelprops[8].dp,"%d",laps);
+ sprintf((char *)levelprops[9].dp,"%d",song);
  do {
   do_dialog(levelprops,-1);
   laps=atoi((char *)levelprops[8].dp);
@@ -173,7 +176,7 @@ void editmap() {
  BITMAP *tools=display.subbitmap(0,display.h()-26,display.w(),26);
  FONT *nfont=(FONT *)d(FONT_SMALL);
 
- view *mapview=new view(viewbitmap); //de tv† vyerna
+ view *mapview=new view(viewbitmap); //de tvÃ¥ vyerna
  editcursor *cur;
  int i,curtile=0,quit=0,a;
  int tool=0;
@@ -303,7 +306,7 @@ void editmap() {
     break;
   }
 
-  //F”lj efter muspekaren
+  //FÃ¶lj efter muspekaren
   mapview->follow(cur);
 
   //rita krafset
@@ -317,7 +320,7 @@ void editmap() {
    tmpx=(bc[i].x-mapview->getsx())>>12;
    tmpy=(bc[i].y-mapview->getsy())>>12;
    textprintf(viewbitmap,nfont,tmpx-4,tmpy-4,GREEN,"%i",i+1);
-   line(viewbitmap,tmpx,tmpy,tmpx+(fsin(bc[i].a)>>12),tmpy-(fcos(bc[i].a)>>12),makecol(255,128,0));
+   line(viewbitmap,tmpx,tmpy,tmpx+(fixsin(bc[i].a)>>12),tmpy-(fixcos(bc[i].a)>>12),makecol(255,128,0));
   }
   if (key[KEY_F1]) {
    y=4;
@@ -325,7 +328,7 @@ void editmap() {
    textprintf(viewbitmap,nfont,4,y+=10,RED,S_EDITHELP2);
    textprintf(viewbitmap,nfont,4,y+=10,RED,S_EDITHELP3);
   }
-  //TADAM! Skicka till sk„rmen!
+  //TADAM! Skicka till skÃ¤rmen!
   display.flip();
   while (target_cycle>actual_cycle) {
    sprite::moveall();

@@ -1,7 +1,7 @@
 //WRAPPERS.CC
 #include "boatrage.h"
 #include "wrappers.h"
-screenman display; //tar hand om sk„rmen
+screenman display; //tar hand om skÃ¤rmen
 musicplayer Music;
 soundplayer Sound;
 

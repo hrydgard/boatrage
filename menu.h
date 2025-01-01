@@ -1,6 +1,6 @@
 //MENU.H
 
-//dessa har ingen betydelse „n...
+//dessa har ingen betydelse Ã¤n...
 #define M_LABEL 0
 #define M_CHOICE 1
 #define M_SLIDER 2
@@ -9,12 +9,12 @@
 
 
 struct coolmenuitem {
- char *text;  //texten s†klart
- int type;    //meningsl”s „n s† l„nge
+ char *text;  //texten sÃ¥klart
+ int type;    //meningslÃ¶s Ã¤n sÃ¥ lÃ¤nge
  int x,y;     //var valet ska vara
- int min,max; //meningsl”s
- int val;     //samma h„r
- char *strval;//och h„r
+ int min,max; //meningslÃ¶s
+ int val;     //samma hÃ¤r
+ char *strval;//och hÃ¤r
 };
 
 //starta en meny

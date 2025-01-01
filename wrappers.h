@@ -95,7 +95,7 @@ class screenman {
    create_color_table(&color_table,stdpal,blend,NULL);
    color_map=&color_table;
   }
-  operator BITMAP* () {    //sÜ att man kan t ex gîra sÜ hÑr: clear(display);
+  operator BITMAP* () {    //s√• att man kan t ex g√∂ra s√• h√§r: clear(display);
    return buffer;
   }
   void flip() {
