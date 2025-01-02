@@ -99,7 +99,7 @@ class screenman {
    return buffer;
   }
   void flip() {
-   blit(buffer,screen,0,0,0,0,buffer->w,buffer->h);
+   stretch_blit(buffer, screen, 0, 0, 320, 200, 0, 0, xres, yres);
   }
   BITMAP *subbitmap(int x,int y, int w, int h) {
    return create_sub_bitmap(buffer,x,y,w,h);
