@@ -4,6 +4,7 @@
 
 int coolmenu(RLE_SPRITE *background, coolmenuitem *items, int count, int sel) {
  int i,first=1;
+ int changed=0;
  clear(display);
  display.goblack();
  text_mode(-1);
@@ -17,16 +18,24 @@ int coolmenu(RLE_SPRITE *background, coolmenuitem *items, int count, int sel) {
   draw_trans_rle_sprite(display,(RLE_SPRITE *)d(SELECTOR),items[sel].x+SCR_X,items[sel].y+SCR_Y);
   display.flip();
   if (first) {first=0; display.fadein(4);}
+
+  if (changed && (key[KEY_DOWN] || key[KEY_UP]))
+   continue;
+  else
+   changed=0;
+
   if (key[KEY_UP])    {
    clear_keybuf();
    Sound.play((SAMPLE *)d(SND_CHOOSE));
    sel--;
    clear(display);
+   changed=1;
   }
   if (key[KEY_DOWN])  {
    clear_keybuf();
    Sound.play((SAMPLE *)d(SND_CHOOSE));
    sel++;
+   changed=1;
   }
   if (key[KEY_ENTER]) {
    clear_keybuf();
