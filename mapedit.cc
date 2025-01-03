@@ -171,7 +171,7 @@ void editmap() {
  #define RED makecol(240,0,0)
  #define BLUE makecol(0,64,255)
  #define GREEN makecol(0,192,0)
-
+ int changed=0;
  BITMAP *viewbitmap=display.subbitmap(0,0,display.w(),display.h()-26);
  BITMAP *tools=display.subbitmap(0,display.h()-26,display.w(),26);
  FONT *nfont=(FONT *)d(FONT_SMALL);
@@ -203,13 +203,20 @@ void editmap() {
   hline(tools,0,1,tools->w,makecol(128,128,255));
   hline(tools,0,2,tools->w,makecol(0,0,128));
 
+  if (changed && (key[KEY_DOWN] || key[KEY_UP] || key[KEY_LEFT] || key[KEY_RIGHT] || key[KEY_PGUP] || key[KEY_PGDN]))
+   continue;
+  else
+   changed=0;
+
   if (key[KEY_PGUP]) {
    if (tool>0) tool--;
    key[KEY_PGUP]=0;
+   changed=1;
   }
   if (key[KEY_PGDN]) {
    if (tool<9) tool++;
    key[KEY_PGDN]=0;
+   changed=1;
   }
   textprintf(tools,nfont,1,10,BLUE,S_F1HELP);
   switch (tool) {
@@ -236,19 +243,26 @@ void editmap() {
      if (curtile>-1) curtile--;
      if(curtile==-1) layer=1;
      clear_keybuf();
+     changed=1;
     }
     if (key[KEY_RIGHT]) {
      if (curtile<MAXTILES-1) curtile++;
      clear_keybuf();
+     changed=1;
     }
-    if (key[KEY_DOWN]) layer++;
+    if (key[KEY_DOWN]) {
+     layer++;
+     changed=1;
+    }
     if (key[KEY_UP]) {
      clear_keybuf();
      brush++;
+     changed=1;
     }
     if (key[KEY_DOWN]) {
      clear_keybuf();
      brush--;
+     changed=1;
     }
     if (brush<1) brush=1;
     if (brush>3) brush=4;
@@ -273,18 +287,22 @@ void editmap() {
     if (key[KEY_LEFT]) {
      if (lcolor>0) lcolor--;
      clear_keybuf();
+     changed=1;
     }
     if (key[KEY_RIGHT]) {
      if (lcolor<6) lcolor++;
      clear_keybuf();
+     changed=1;
     }
     if (key[KEY_UP]) {
      if (ltype>0) ltype--;
      clear_keybuf();
+     changed=1;
     }
     if (key[KEY_DOWN]) {
      if (ltype<2) ltype++;
      clear_keybuf();
+     changed=1;
     }
     break;
    case 2:
@@ -296,9 +314,11 @@ void editmap() {
     }
     if (key[KEY_LEFT]) {
      bc[tool-2].a-=itofix(1);
+     changed=1;
     }
     if (key[KEY_RIGHT]) {
      bc[tool-2].a+=itofix(1);
+     changed=1;
     }
     break;
    default:
@@ -329,7 +349,8 @@ void editmap() {
    textprintf(viewbitmap,nfont,4,y+=10,RED,S_EDITHELP3);
   }
   //TADAM! Skicka till skärmen!
-  display.flip();
+  //display.flip();
+  blit(display,screen,0,0,0,0,SCREEN_W,SCREEN_H);
   while (target_cycle>actual_cycle) {
    sprite::moveall();
    actual_cycle++;
